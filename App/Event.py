@@ -54,8 +54,9 @@ async def shorten_url(bot, message, url, short=""):
                         logger.success(f"User ID: {message.chat.id}  Get Short URL: {json_data['url']}")
                         await bot.reply_to(
                             message,
-                            f"{_info}{json_data['url']}",
+                            f"{_info}`{json_data['url']}`",
                             disable_web_page_preview=True,
+                            parse_mode="Markdown",
                         )
                     else:
                         logger.error(f"User ID: {message.chat.id}  Can't Get Short URL: {json_data['msg']}")
