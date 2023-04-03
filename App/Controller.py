@@ -10,6 +10,7 @@ from loguru import logger
 from telebot import util
 from telebot.async_telebot import AsyncTeleBot
 from telebot.asyncio_storage import StateMemoryStorage
+from utils.Parameter import get_parameter
 
 
 class BotRunner(object):
@@ -60,7 +61,7 @@ class BotRunner(object):
                 await bot.reply_to(message, "格式错误, 格式应为 /set [URL]")
             elif len(command_args) == 2:
                 url = command_args[1]
-                await Event.set_url(bot, message, url)
+                await Event.choose_url(bot, message, url)
             else:
                 await bot.reply_to(message, "格式错误, 格式应为 /set [URL]")
 
@@ -73,11 +74,37 @@ class BotRunner(object):
                     await bot.reply_to(message, "格式错误, 格式应为 /setdefault [URL]")
                 elif len(command_args) == 2:
                     url = command_args[1]
-                    await Event.set_url(bot, message, url, is_admin=True)
+                    await Event.choose_default_url(bot, message, url)
                 else:
                     await bot.reply_to(message, "格式错误, 格式应为 /setdefault [URL]")
             else:
                 await bot.reply_to(message, "你不是管理员哦")
+
+        @bot.callback_query_handler(func=lambda call: True)
+        async def handle_backend_type_selection(call):
+            if call.message.text == "请选择默认后端类型":
+                is_admin = True
+                url = get_parameter("default")
+            else:
+                is_admin = False
+                url = get_parameter("user", call.from_user.id, "URL")
+            if call.data == 'UrlShorter':
+                if is_admin:
+                    await Event.set_url(bot, call, url, "UrlShorter", is_admin=True)
+                else:
+                    await Event.set_url(bot, call, url, "UrlShorter", is_admin=False)
+            elif call.data == 'Url-Shorten-Worker':
+                if is_admin:
+                    await Event.set_url(bot, call, url, "Url-Shorten-Worker", is_admin=True)
+                else:
+                    await Event.set_url(bot, call, url, "Url-Shorten-Worker", is_admin=False)
+            else:
+                await bot.edit_message_text(
+                    chat_id=call.message.chat.id,
+                    message_id=call.message.message_id,
+                    text=f"无效的后端: {call.data}",
+                    disable_web_page_preview=True,
+                )
 
         from telebot import asyncio_filters
         bot.add_custom_filter(asyncio_filters.IsAdminFilter(bot))

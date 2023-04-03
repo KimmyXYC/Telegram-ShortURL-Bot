@@ -1,4 +1,10 @@
 {
-  "default": "",
-  "user": {}
+  "default": "https://example.com",
+  "type": "UrlShorter",
+  "user": {
+    "666000": {
+      "URL": "https://example.com",
+      "type": "UrlShorter"
+    }
+  }
 }

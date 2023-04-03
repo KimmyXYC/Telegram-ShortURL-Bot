@@ -9,5 +9,5 @@
 
 
 ### 注意事项
-- 目前后端仅适配 [UrlShorter](https://github.com/soxft/UrlShorter/wiki/API)
+- 目前后端仅适配 [UrlShorter](https://github.com/soxft/UrlShorter/wiki/API) 与 [Url-Shorten-Worker](https://github.com/xyTom/Url-Shorten-Worker/blob/main/API_zh-hans.md)
 - 必须设置有效的后端地址，否则无法使用!
