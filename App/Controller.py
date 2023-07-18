@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time： 2023/3/12 10:40 
+# @Time: 2023/3/12 10:40
 # @FileName: Controller.py
-# @Software： PyCharm
+# @Software: PyCharm
 # @GitHub: KimmyXYC
 import asyncio
 import telebot

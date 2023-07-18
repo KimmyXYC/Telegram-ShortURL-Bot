@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time： 2023/3/12 10:40 
+# @Time: 2023/3/12 10:40
 # @FileName: Event.py
-# @Software： PyCharm
+# @Software: PyCharm
 # @GitHub: KimmyXYC
 import telebot
 import aiohttp

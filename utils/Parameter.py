@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time： 2023/3/12 11:32 
+# @Time: 2023/3/12 11:32
 # @FileName: Parameter.py
-# @Software： PyCharm
+# @Software: PyCharm
 # @GitHub: KimmyXYC
 import json
 import pathlib

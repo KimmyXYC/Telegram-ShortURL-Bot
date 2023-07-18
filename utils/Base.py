@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time： 2023/3/12 10:41 
+# @Time: 2023/3/12 10:41
 # @FileName: Base.py
-# @Software： PyCharm
+# @Software: PyCharm
 # @GitHub: KimmyXYC
 import rtoml
 

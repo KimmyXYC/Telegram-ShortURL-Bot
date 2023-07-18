@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time： 2023/3/12 10:38 
+# @Time: 2023/3/12 10:38
 # @FileName: main.py
-# @Software： PyCharm
+# @Software: PyCharm
 # @GitHub: KimmyXYC
 from pathlib import Path
 from utils.Base import ReadConfig
